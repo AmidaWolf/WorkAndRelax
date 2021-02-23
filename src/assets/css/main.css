@@ -1,0 +1,79 @@
+.bg-wrapper {
+    width: 100%;
+    height: 100vh;
+}
+
+.bg-section {
+    width: 100%;
+    height: 100%;
+
+    background-image: url("/assets/img/waves.jpg"),
+    url("/assets/img/forest.jpg"),
+    url("/assets/img/rain.jpg"),
+    url("/assets/img/cafe.jpg"),
+    url("/assets/img/frogs.jpg"),
+    url("/assets/img/snow.jpg"),
+    url("/assets/img/train.jpg"),
+    url("/assets/img/fire.jpg");
+
+    background-color: #cbcbcb;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+
+    justify-content: center;
+
+    transition: opacity 1s;
+}
+
+.text {
+    align-self: center;
+}
+
+.text__title {
+    text-align: center;
+}
+
+.text__subtitle {
+    text-align: center;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+    grid-gap: 30px;
+
+    align-self: center;
+}
+
+.buttons__button {
+    width: 100px;
+    height: 100px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 10px;
+
+    background-color: rgba(133, 133, 133, 0.9);
+
+    cursor: pointer;
+}
+
+.buttons__button:hover {
+    background-color: rgba(133, 133, 133, 1);
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+}
+
+.volume {
+    margin-top: 30px;
+
+    justify-self: safe center;
+}
+
+
+
