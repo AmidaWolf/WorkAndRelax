@@ -72,7 +72,7 @@ window.onload = function() {
     bgSection.style.backgroundImage = "url(\"/assets/img/" + activeValue + ".jpg\")";
 
     soundManager.stopAll();
-    soundManager.play(activeValue);
+    soundManager.play(activeValue, { loops: Infinity });
   }
 
   let button = document.getElementsByClassName("buttons__button");
@@ -81,9 +81,20 @@ window.onload = function() {
   }
 }
 
-//document.querySelector('#start').onclick = () => audioPlay('/assets/sounds/.mp3');
+let volumeButton = document.getElementById("volume__button");
 
+volumeButton.addEventListener('input',startTimer,false);
+volumeButton.addEventListener('change',startTimer,false);
 
+let timeout;
+function startTimer() {
+  let that = this;
+  clearTimeout(timeout);
+  timeout = setTimeout(function() {
+    handleEvent(that);
+  }, 100);
+}
 
-
-
+function handleEvent(volumeButton) {
+  soundManager.setVolume(activeValue, volumeButton.value);
+}
