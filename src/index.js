@@ -27,7 +27,7 @@ window.onload = function() {
 
     bgSection.style.backgroundImage = "url(\"/assets/img/" + activeValue + ".jpg\")";
 
-    audioPlay("/assets/sounds/" + activeValue + ".mp3");
+    audioPlay("/assets/img/sounds/" + activeValue + ".mp3");
   }
 
   let button = document.getElementsByClassName("buttons__button");
