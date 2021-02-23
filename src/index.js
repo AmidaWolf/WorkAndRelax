@@ -9,9 +9,12 @@ let bgSection = document.getElementById("bg-section");
 let activeValue = "waves";
 bgSection.style.backgroundImage = "url(\"/assets/img/" + activeValue + ".jpg\")";
 
+let source;
+
 const audioPlay = async url => {
+  source.stop();
   const context = new AudioContext();
-  const source = context.createBufferSource();
+  source = context.createBufferSource();
   const audioBuffer = await fetch(url)
     .then(res => res.arrayBuffer())
     .then(ArrayBuffer => context.decodeAudioData(ArrayBuffer));
