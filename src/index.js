@@ -1,15 +1,11 @@
 import "./assets/css/main.css";
 import "./assets/css/reset.css";
-import {buttons} from "./js/Buttons";
 
 let soundManager = require('SoundManager2').soundManager;
 
-let section = document.getElementById("buttons-section");
-section.appendChild(buttons);
-
 let bgSection = document.getElementById("bg-section");
-let activeValue = "waves";
-bgSection.style.backgroundImage = "url(\"/assets/img/" + activeValue + ".jpg\")";
+let activeValue;
+bgSection.style.backgroundImage = "url(\"/assets/img/main.jpg\")";
 
 soundManager.setup({
   preferFlash: false,
@@ -46,7 +42,7 @@ soundManager.setup({
     });
     soundManager.createSound({
       url: [
-        "/assets/img/sounds/snow.mp3"
+        "/assets/img/sounds/snowpeaks.mp3"
       ],
       id: "snow"
     });
@@ -65,7 +61,20 @@ soundManager.setup({
   }
 }).beginDelayedInit();
 
+let playStatus = false;
+let soundOn = true;
+let buttonStopAndPlay = document.getElementById("stop-play");
+let buttonStop = document.getElementById("stop");
+let buttonStart = document.getElementById("play");
+let volumeButton = document.getElementById("volume__button");
+soundManager.setVolume(activeValue, volumeButton.value);
+let buttonOnOff = document.getElementById("on-off");
+let buttonOn = document.getElementById("on");
+let buttonOff = document.getElementById("off");
+
 window.onload = function() {
+
+
   function changeBgAndSound() {
     activeValue = this.value;
 
@@ -73,15 +82,49 @@ window.onload = function() {
 
     soundManager.stopAll();
     soundManager.play(activeValue, { loops: Infinity });
+    playStatus = true;
   }
+
+  function stopAndPlay() {
+    if (activeValue === undefined) {
+      console.log(activeValue);
+    } else if (playStatus === true && activeValue.length > 0) {
+      soundManager.stopAll();
+      buttonStop.classList.add("display_none");
+      buttonStart.classList.remove("display_none");
+      playStatus = false;
+    } else if (playStatus === false && activeValue.length > 0) {
+      soundManager.start(activeValue, { loops: Infinity });
+      buttonStart.classList.add("display_none");
+      buttonStop.classList.remove("display_none");
+      playStatus = true;
+    }
+  }
+
+  function soundOffOn() {
+    if (activeValue === undefined) {
+      console.log(activeValue);
+    } else if (soundOn === true && activeValue.length > 0) {
+      buttonOff.classList.remove("display_none");
+      buttonOn.classList.add("display_none");
+      soundOn = false;
+      soundManager.setVolume(activeValue, 0);
+    } else {
+      buttonOn.classList.remove("display_none");
+      buttonOff.classList.add("display_none");
+      soundOn = true;
+      soundManager.setVolume(activeValue, volumeButton.value);
+    }
+  }
+
+  buttonStopAndPlay.onclick = stopAndPlay;
+  buttonOnOff.onclick = soundOffOn;
 
   let button = document.getElementsByClassName("buttons__button");
   for (let i = 0; i < button.length; i++) {
     button[i].onclick = changeBgAndSound;
   }
 }
-
-let volumeButton = document.getElementById("volume__button");
 
 volumeButton.addEventListener('input',startTimer,false);
 volumeButton.addEventListener('change',startTimer,false);
@@ -98,3 +141,5 @@ function startTimer() {
 function handleEvent(volumeButton) {
   soundManager.setVolume(activeValue, volumeButton.value);
 }
+
+

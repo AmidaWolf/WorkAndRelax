@@ -1,3 +1,10 @@
+@font-face{
+    font-family: "Myriad Pro";
+    src: url("/assets/fonts/Myriad Pro Light.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
 .bg-wrapper {
     width: 100%;
     height: 100vh;
@@ -7,7 +14,8 @@
     width: 100%;
     height: 100%;
 
-    background-image: url("/assets/img/waves.jpg"),
+    background-image: url("/assets/img/main.jpg"),
+    url("/assets/img/waves.jpg"),
     url("/assets/img/forest.jpg"),
     url("/assets/img/rain.jpg"),
     url("/assets/img/cafe.jpg"),
@@ -24,19 +32,32 @@
     grid-template-rows: repeat(3, 1fr);
 
     justify-content: center;
-
-    transition: opacity 1s;
 }
 
 .text {
     align-self: center;
+    justify-self: center;
+    /*width: 700px;*/
 }
 
 .text__title {
+    font-family: "Myriad Pro", sans-serif;
+    font-weight: 300;
+    font-size: 49px;
+    color: #fff;
+
     text-align: center;
+
+    padding-bottom: 20px;
 }
 
 .text__subtitle {
+    font-family: "Myriad Pro", sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 27px;
+    color: #fff;
+
     text-align: center;
 }
 
@@ -51,28 +72,222 @@
 }
 
 .buttons__button {
-    width: 100px;
-    height: 100px;
+    position: relative;
+
+    width: 157px;
+    height: 157px;
 
     padding: 0;
 
     border: none;
-    border-radius: 10px;
+    border-radius: 20px;
 
-    background-color: rgba(133, 133, 133, 0.9);
+    background-color: rgba(112, 112, 112, 0.8);
+
+    cursor: pointer;
+}
+
+.buttons__button:before {
+    position: absolute;
+    left: 50%;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    width: 220px;
+    height: 48px;
+
+    margin-left: -110px;
+    padding: 13px;
+
+    content: attr(data-description);
+    font-family: "Myriad Pro", sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    text-align: center;
+    color: white;
+
+    box-sizing: border-box;
+
+    background: #AE31A8;
+
+    border-radius: 5px;
+    opacity: 0;
+    transition: .25s ease-in-out;
+}
+
+.buttons__button_top:before {
+    top:-73px;
+}
+
+.buttons__button_bottom:before {
+    bottom:-73px;
+}
+
+.buttons__button:after {
+    content: '';
+    display: none;
+    position: absolute;
+    left: 50%;
+    margin-left: -8px;
+    height: 0;
+    width: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    transition: .25s ease-in-out;
+    opacity: 0;
+}
+
+.buttons__button_top:after {
+    border-top: 8px solid #AE31A8;
+    top:-26px;
+}
+
+.buttons__button_bottom:after {
+    border-bottom: 8px solid #AE31A8;
+    bottom:-26px;
+}
+
+.buttons__button_top:hover:before {
+    opacity:1;
+    display: flex;
+}
+
+.buttons__button_top:hover:after {
+    opacity:1;
+    display: block;
+}
+
+.buttons__button_bottom:hover:before {
+    opacity:1;
+    display: flex;
+}
+
+.buttons__button_bottom:hover:after {
+    opacity:1;
+    display: block;
+}
+
+.buttons__button svg {
+    fill: #ffffff;
 
     cursor: pointer;
 }
 
 .buttons__button:hover {
-    background-color: rgba(133, 133, 133, 1);
-    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+}
+
+.buttons__button:hover svg {
+    fill: #AE31A8;
+}
+
+.display_none {
+    display: none;
+}
+
+.volume-and-socials {
+    display: grid;
+}
+
+.volume__button {
+    width: 34px;
+    height: 34px;
+
+    margin-right: 10px;
+    padding: 0;
+
+    border: none;
+    background-color: transparent;
+
+    cursor: pointer;
+}
+
+.volume__button svg {
+    fill: #ffffff;
+
+    cursor: pointer;
 }
 
 .volume {
-    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    align-self: end;
+}
 
-    justify-self: safe center;
+.social-buttons {
+    margin-bottom: 30px;
+    justify-self: end;
+    align-self: end;
+}
+
+.social-buttons__button {
+   text-decoration: none;
+}
+
+.social-buttons__button:first-child {
+    margin-right: 25px;
+}
+
+.social-buttons__button svg {
+    fill: #707070;
+}
+
+.social-buttons__button:hover svg {
+    fill: #ffffff;
+}
+
+
+/*стилизация input range*/
+input[type=range] {
+    -webkit-appearance: none;
+    width: 212px;
+    height: 2px;
+    padding: 0;
+    margin: 0;
+    /* стили ползунка */
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    box-sizing: content-box;
+    width: 15px;
+    height: 15px;
+    border: none;
+    border-radius: 15px;
+    background: #ffffff;
+    /* стили бегунка */
+}
+input[type=range]::-moz-range-thumb {
+    box-sizing: content-box;
+    width: 15px;
+    height: 15px;
+    border: none;
+    border-radius: 15px;
+    background: #ffffff;
+    /* снова стили бегунка */
+}
+input[type=range]::-ms-thumb { /* должен следовать после -webkit- */
+    box-sizing: content-box;
+    width: 15px;
+    height: 15px;
+    border: none;
+    border-radius: 15px;
+    background: #ffffff;
+    /* снова бегунка */
+    /* могут потребоваться разные отступы */
+}
+input[type=range]::-webkit-slider-runnable-track {
+    /* стили дорожки*/
+}
+input[type=range]::-moz-range-track {
+    /* снова стили дорожки */
+}
+input[type=range]::-ms-track { /* должен следовать после -webkit- */
+    border-color: transparent;
+    color: transparent;
+    /* снова стили дорожки */
 }
 
 
