@@ -223,6 +223,7 @@
 
 .volume__label {
     margin-bottom: 12px;
+    cursor: pointer;
 }
 
 .social-buttons {
