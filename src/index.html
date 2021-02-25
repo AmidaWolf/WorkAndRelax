@@ -84,9 +84,9 @@
       </div>
 
       <div class="volume-and-socials">
-        <label class="volume">
+        <div class="volume">
           <button class="volume__button volume__button_stop-play" id="stop-play">
-            <svg id="stop" class="stop" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+            <svg id="stop" class="stop display_none" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                  viewBox="0 0 24 24"><path d="M2 2h20v20h-20z"/></svg>
             <svg id="play" class="play display_none" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                  viewBox="0 0 24 24"><path d="M3 22v-20l18 10-18 10z"/></svg>
@@ -103,8 +103,12 @@
               </g>
             </svg>
           </button>
-          <input class="sound-range" id="volume__button" type="range" min="0" max="100" step="1" value="80">
-        </label>
+          <label for="volume__button" class="volume__label">
+            <input class="sound-range" id="volume__button"
+                   type="range" min="0" max="100" step="1" value="80">
+          </label>
+
+        </div>
 
         <div class="social-buttons">
           <a class="social-buttons__button" href="https://www.acrobat.by/" target="_blank">

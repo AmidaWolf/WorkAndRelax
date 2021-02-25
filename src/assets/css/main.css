@@ -210,11 +210,19 @@
     cursor: pointer;
 }
 
+.volume__button:hover svg {
+    fill: #AE31A8;
+}
+
 .volume {
     display: flex;
     align-items: center;
     justify-self: center;
     align-self: end;
+}
+
+.volume__label {
+    margin-bottom: 12px;
 }
 
 .social-buttons {
