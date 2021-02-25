@@ -50,7 +50,7 @@ module.exports = {
       }
     },
     {
-      test: /\.(png|jpg|gif|svg)$/,
+      test: /\.(png|jpg|gif|svg|mp3)$/,
       loader: "file-loader",
       options: {
         name: "[name].[ext]"
@@ -106,6 +106,7 @@ module.exports = {
     new CopyWebpackPlugin([
       { from: `${PATHS.src}/${PATHS.assets}img`, to: `${PATHS.assets}img` },
       { from: `${PATHS.src}/${PATHS.assets}fonts`, to: `${PATHS.assets}fonts` },
+      { from: `${PATHS.src}/${PATHS.assets}sounds`, to: `${PATHS.assets}sounds` },
       { from: `${PATHS.src}/static`, to: "" }
     ])
   ],

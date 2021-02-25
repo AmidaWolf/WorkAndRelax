@@ -12,49 +12,49 @@ soundManager.setup({
   onready: function () {
     soundManager.createSound({
       url: [
-        "/assets/img/sounds/waves.mp3"
+        "/assets/sounds/waves.mp3"
       ],
       id: "waves"
     });
     soundManager.createSound({
       url: [
-        "/assets/img/sounds/forest.mp3"
+        "/assets/sounds/forest.mp3"
       ],
       id: "forest"
     });
     soundManager.createSound({
       url: [
-        "/assets/img/sounds/rain.mp3"
+        "/assets/sounds/rain.mp3"
       ],
       id: "rain"
     });
     soundManager.createSound({
       url: [
-        "/assets/img/sounds/cafe.mp3"
+        "/assets/sounds/cafe.mp3"
       ],
       id: "cafe"
     });
     soundManager.createSound({
       url: [
-        "/assets/img/sounds/frogs.mp3"
+        "/assets/sounds/frogs.mp3"
       ],
       id: "frogs"
     });
     soundManager.createSound({
       url: [
-        "/assets/img/sounds/snowpeaks.mp3"
+        "/assets/sounds/snowpeaks.mp3"
       ],
       id: "snowpeaks"
     });
     soundManager.createSound({
       url: [
-        "/assets/img/sounds/train.mp3"
+        "/assets/sounds/train.mp3"
       ],
       id: "train"
     });
     soundManager.createSound({
       url: [
-        "/assets/img/sounds/fire.mp3"
+        "/assets/sounds/fire.mp3"
       ],
       id: "fire"
     });
@@ -85,6 +85,8 @@ window.onload = function() {
     soundManager.setVolume(activeValue, volumeButton.value);
 
     playStatus = true;
+
+    buttonStopAndPlay.classList.remove("display_none");
 
     //добавляет кнопку стоп при первом запуске любого трека,
     // а так же предотвращает появление лишней кнопки стоп/старт (если была активна) при переключении трека
