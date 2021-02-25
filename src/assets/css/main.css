@@ -1,3 +1,4 @@
+/* xxl-размер (>=1400px) */
 @font-face{
     font-family: "Myriad Pro";
     src: url("/assets/fonts/Myriad Pro Light.ttf");
@@ -69,6 +70,7 @@
     grid-gap: 30px;
 
     align-self: center;
+    justify-items: center;
 }
 
 .buttons__button {
@@ -90,6 +92,7 @@
 .buttons__button:before {
     position: absolute;
     left: 50%;
+    z-index: 2;
 
     display: none;
     justify-content: center;
@@ -248,7 +251,6 @@
     fill: #ffffff;
 }
 
-
 /*стилизация input range*/
 input[type=range] {
     -webkit-appearance: none;
@@ -297,6 +299,91 @@ input[type=range]::-ms-track { /* должен следовать после -we
     border-color: transparent;
     color: transparent;
     /* снова стили дорожки */
+}
+
+/* lg-размер (<=1399px) */
+@media (max-width: 1399px) {
+    .text__title {
+        font-size: 32px;
+        padding-bottom: 10px;
+    }
+
+    .text__subtitle {
+        font-size: 18px;
+        padding-bottom: 20px;
+    }
+
+    .buttons__button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 100px;
+        height: 100px;
+        padding: 30px;
+    }
+
+    .buttons__button_top::before {
+        top: -55px;
+    }
+
+    .buttons__button_bottom::before {
+        bottom: -55px;
+    }
+
+    .buttons__button_top::after {
+        top: -8px;
+    }
+
+    .buttons__button_bottom::after {
+        bottom: -8px;
+    }
+}
+
+/* lg-размер (<=1199px) */
+@media (max-width: 1199px) {
+    .bg-wrapper {
+        height: 100%;
+        min-height: 100vh;
+    }
+}
+
+/* md-размер (<=991px) */
+@media (max-width: 991px) {
+    /* CSS для ширины от 768px до 991px */
+
+}
+
+/* sm-размер (<=768px) */
+@media (max-width: 767px) {
+    /* CSS для ширины от 576px до 767px */
+    .bg-section {
+        width: auto;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+/* xs-размер (<=575px) */
+@media (max-width: 575px) {
+    /* CSS для ширины до 575px (включительно) */
+    .buttons {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+
+        grid-gap: 30px;
+
+        align-self: center;
+        justify-items: center;
+    }
+
+    .buttons__button:before {
+        width: 180px;
+        height: 48px;
+
+        margin-left: -90px;
+    }
 }
 
 
