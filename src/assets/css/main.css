@@ -33,6 +33,11 @@
     grid-template-rows: repeat(3, 1fr);
 
     justify-content: center;
+    
+    webkit-transition: background 500ms ease-in-out 300ms;
+    -moz-transition: background 500ms ease-in-out 300ms;
+    -o-transition: background 500ms ease-in-out 300ms;
+    transition: background 500ms ease-in-out 300ms;
 }
 
 .text {
